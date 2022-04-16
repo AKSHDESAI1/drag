@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+    body{
+    background-color: darkslateblue;
+}
+
+.whitebox{
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    border: 2px solid red;
+}
+
+.imgbox{
+    height: 140px;
+    width: 140px;
+    background-image: url('/cwh.png');
+    cursor: pointer;
+}
+
+.hide{
+    display: none;
+}</style>
+</head>
+<body>
+    <div class="whitebox" id="1">
+        <div class="imgbox" draggable="true"></div>
+    </div>
+    <div class="whitebox" id="2">
+
+    </div>
+    <div class="whitebox" id="3"></div>
+    <div class="whitebox" id="4"></div>
+    <div class="whitebox" id="3"></div>
+    <div class="whitebox" id="4"></div>
+    <div class="whitebox" id="3"></div>
+    <div class="whitebox" id="4"></div>
+    <div class="whitebox" id="3"></div>
+    <div class="whitebox" ></div>
+    <div class="whitebox" ></div>
+    <div class="whitebox" ></div>
+    <div class="whitebox" ></div>
+    <div class="whitebox" ></div>
+    <div class="whitebox" ></div>
+    <div class="whitebox" ></div>
+    <div class="whitebox" ></div>
+    <div class="whitebox" ></div>
+    <div class="whitebox" ></div>
+    <div class="whitebox" ></div>
+    <div class="whitebox" ></div>
+    <div class="whitebox" ></div>
+    <div class="whitebox" ></div>
+    <div class="whitebox" ></div>
+    <div class="whitebox" ></div>
+    <div class="whitebox" ></div>
+    <div class="whitebox" ></div>
+    <div class="whitebox" ></div>
+    <div class="whitebox" ></div>
+    <div class="whitebox" ></div>
+    <div class="whitebox" ></div>
+    <div class="whitebox" ></div>
+    <div class="whitebox" ></div>
+    <div class="whitebox" ></div>
+    <div class="whitebox" ></div>
+    <div class="whitebox" ></div>
+    <div class="whitebox" ></div>
+    <div class="whitebox" ></div>
+    <div class="whitebox" ></div>
+    <div class="whitebox" ></div>
+    <div class="whitebox" ></div>
+    <div class="whitebox" ></div>
+    <div class="whitebox" ></div>
+    <div class="whitebox" ></div>
+    <div class="whitebox" ></div>
+</body>
+
+<script >
+const imgbox = document.querySelector('.imgbox');
+const whitebox = document.querySelectorAll('.whitebox');
+
+imgbox.addEventListener('dragstart', (e) => {
+    // setTimeout(() => {
+        
+    //     e.target.className = ' hide';
+    // }, 2);
+    console.log(1);
+})
+
+imgbox.addEventListener('dragend', (e) => {
+    // console.log('meow', e.target);
+    // e.target.append += 'imgbox';
+    console.log(2);
+})
+
+for (i of whitebox){
+    i.addEventListener('dragenter', (e) => {
+    //         setTimeout(() => {
+        
+    //     e.target.children[0] = ' hide';
+    // }, 2);
+        console.log('dragenter');
+    })
+
+    i.addEventListener('dragover', (e)=> {
+        e.preventDefault();
+        console.log('dragover');
+    })
+
+    i.addEventListener('dragleave', (e) => {
+        e.target.innerHTML = '<div class="imgbox" draggable="true"></div>'
+        console.log('dragleave');
+    })
+    
+    i.addEventListener('drop', (e)=>{
+        for (w of whitebox){
+            w.innerHTML = ''
+        }
+        e.target.innerHTML = '<div class="imgbox" draggable="true"></div>'
+        // e.target.setAttribute('draggable', 'true');
+        console.log('drop');
+    })
+}
+</script>
+</html>
